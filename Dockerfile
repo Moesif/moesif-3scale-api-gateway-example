@@ -15,9 +15,6 @@ RUN cp -r /usr/local/openresty/luajit/include/luajit-2.1/* /usr/include/
 RUN subscription-manager register --username <user_name> --password <password>
 RUN subscription-manager attach
 RUN yum -y install gcc
-RUN luarocks install luasocket
-RUN luarocks install lua-cjson
-RUN luarocks install luajson
 
 RUN luarocks install --server=http://luarocks.org/manifests/moesif lua-resty-moesif
 

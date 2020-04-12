@@ -34,8 +34,16 @@ docker run -p 8080:8080 -d apicast:latest
 
 By default, The container is listening on port 8080. You should now be able to make a request: 
 
+If you configured 3scale to authenticate via a single user_key string:
+
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"name":"moesif"}' "http://localhost:8080/api/user" -H 'User-Id:my_user_id' -H "Company-Id:my_company_id"
+curl -X POST -H "Content-Type: application/json" -d '{"name":"moesif"}' "http://localhost:8080/api/user?user_key=user_key"
+```
+
+If you configured 3scale to authenticate via app_id and app_key pair:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"name":"moesif"}' "http://localhost:8080/api/user" -H 'app_id:app_id' -H "app_key:app_key"
 ```
 
 5. The data should be captured in the corresponding Moesif account.
